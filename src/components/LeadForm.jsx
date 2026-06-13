@@ -26,13 +26,27 @@ export default function LeadForm({ dark = false }) {
   const [form, setForm]         = useState({ name:'', email:'', phone:'', business:'', service:'', message:'' })
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading]   = useState(false)
+  const [error, setError]       = useState(false)
 
   const change = e => setForm(p => ({ ...p, [e.target.name]: e.target.value }))
 
-  const submit = e => {
+  const submit = async e => {
     e.preventDefault()
     setLoading(true)
-    setTimeout(() => { setLoading(false); setSubmitted(true) }, 1500)
+    setError(false)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (!res.ok) throw new Error()
+      setSubmitted(true)
+    } catch {
+      setError(true)
+    } finally {
+      setLoading(false)
+    }
   }
 
   if (submitted) {
@@ -105,6 +119,13 @@ export default function LeadForm({ dark = false }) {
           <label htmlFor="lf-message">¿Cuéntanos más sobre tu negocio? <span className="lf__req">*</span></label>
           <textarea id="lf-message" name="message" rows={3} placeholder="Ej: Tengo un negocio de consultoría, quiero una web para captar clientes y recibir solicitudes..." value={form.message} onChange={change} required/>
         </div>
+
+        {error && (
+          <p className="lf__error">
+            Hubo un problema al enviar. Escríbenos directamente a{' '}
+            <a href="mailto:contacto@flanovax.com">contacto@flanovax.com</a>
+          </p>
+        )}
 
         <button type="submit" className={`btn btn-gold btn-lg lf__btn ${loading ? 'lf__btn--loading' : ''}`} disabled={loading}>
           {loading ? (

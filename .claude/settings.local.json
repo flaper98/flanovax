@@ -10,7 +10,9 @@
       "Bash(curl -s http://localhost:5173/sitemap.xml)",
       "Bash(curl -s -o /dev/null -w \"%{http_code} | content-type: %{content_type} | size: %{size_download} bytes\" http://localhost:5173/og-image.png)",
       "Bash(curl -s -o /dev/null -w \"%{http_code} | %{content_type}\" http://localhost:5173/favicon.svg)",
-      "Bash(grep -v \"//\")"
+      "Bash(grep -v \"//\")",
+      "Bash(curl -s http://localhost:5173/google1494dc9dbd996d6d.html -o /dev/null -w \"%{http_code}\")",
+      "Bash(curl -s http://localhost:5173/google1494dc9dbd996d6d.html)"
     ]
   }
 }
