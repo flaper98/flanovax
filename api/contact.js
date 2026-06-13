@@ -14,10 +14,8 @@ export default async function handler(req, res) {
   }
 
   try {
-    await resend.emails.send({
-      // Antes de verificar dominio en Resend usa: onboarding@resend.dev
-      // Después de verificar flanovax.com cambia por: noreply@flanovax.com
-      from: 'FLANOVAX Web <onboarding@resend.dev>',
+    const { data, error: resendError } = await resend.emails.send({
+      from: 'FLANOVAX <noreply@flanovax.com>',
       to: ['contacto@flanovax.com'],
       reply_to: email,
       subject: `💼 Nueva solicitud — ${name}`,
@@ -79,9 +77,14 @@ export default async function handler(req, res) {
       `,
     })
 
+    if (resendError) {
+      console.error('Resend error:', resendError)
+      return res.status(500).json({ error: resendError.message })
+    }
+
     return res.status(200).json({ ok: true })
   } catch (error) {
-    console.error('Resend error:', error)
+    console.error('Resend exception:', error)
     return res.status(500).json({ error: 'Error al enviar el correo' })
   }
 }
