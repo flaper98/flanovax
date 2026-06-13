@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://flanovax.com/sitemap.xml
+Sitemap: https://www.flanovax.com/sitemap.xml
