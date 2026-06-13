@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(cd \"d:\\\\wks\\\\flaper-solutions-ti\\\\flanovax\\\\website\"; node scripts/gen-og.mjs 2>&1 | Where-Object { $_ -notmatch \"ExperimentalWarning|trace-warnings\" })"
+    ]
+  }
+}

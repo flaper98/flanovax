@@ -1,0 +1,72 @@
+.fcta {
+  position: relative;
+  padding: var(--sp-xl) 0;
+  overflow: hidden;
+}
+
+.fcta__gold-line {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gradient-gold);
+}
+
+.fcta__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  opacity: 0.3;
+}
+.fcta__blob--1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(201,168,76,0.15), transparent);
+  top: -150px; left: -100px;
+}
+.fcta__blob--2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(201,168,76,0.1), transparent);
+  bottom: -100px; right: -80px;
+}
+
+.fcta__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+.fcta__content { display: flex; flex-direction: column; gap: 22px; }
+.fcta__title   { font-size: clamp(1.6rem, 2.5vw, 2.1rem); color: var(--text-on-dark); line-height: 1.2; }
+.fcta__desc    { font-size: 0.97rem; color: var(--text-on-dark-muted); line-height: 1.7; }
+
+.fcta__checks { display: flex; flex-direction: column; gap: 12px; }
+.fcta__checks li {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.9rem; font-weight: 500;
+  color: var(--text-on-dark);
+}
+.fcta__checks svg { flex-shrink: 0; }
+
+.fcta__contacts { border-top: 1px solid var(--border-dark); padding-top: 20px; display: flex; flex-direction: column; gap: 12px; }
+.fcta__contacts-label { font-size: 0.82rem; color: var(--text-on-dark-muted); }
+
+.fcta__contacts-links { display: flex; flex-direction: column; gap: 8px; }
+
+.fcta__contact-btn {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 16px;
+  border-radius: var(--r-sm);
+  font-size: 0.85rem; font-weight: 500;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid var(--border-dark);
+  color: var(--text-on-dark);
+  transition: var(--t);
+}
+.fcta__contact-btn:hover { border-color: var(--gold); color: var(--gold-light); background: rgba(201,168,76,0.08); }
+.fcta__contact-btn--wa { color: #4ade80; border-color: rgba(74,222,128,0.2); background: rgba(74,222,128,0.06); }
+.fcta__contact-btn--wa:hover { border-color: rgba(74,222,128,0.4); background: rgba(74,222,128,0.12); }
+
+@media (max-width: 900px) { .fcta__inner { grid-template-columns: 1fr; gap: 40px; } }
