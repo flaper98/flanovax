@@ -15,8 +15,8 @@ export default async function handler(req, res) {
 
   try {
     const { data, error: resendError } = await resend.emails.send({
-      from: 'FLANOVAX <noreply@flanovax.com>',
-      to: ['contacto@flanovax.com'],
+      from: 'FLANOVAX Web <onboarding@resend.dev>',
+      to: ['flavioalexandro17@gmail.com'],
       reply_to: email,
       subject: `💼 Nueva solicitud — ${name}`,
       html: `
