@@ -2,20 +2,22 @@
    FLANOVAX — Sistema de diseño
    Identidad: Negro de lujo + Dorado metálico + Blanco cálido
    ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
 :root {
   /* ── Fondos ─────────────────────────────────── */
   --bg:           #ffffff;
-  --bg-warm:      #f9f7f4;     /* blanco cálido para secciones alt */
-  --bg-dark:      #0f0e0e;     /* negro del logo */
-  --bg-dark-2:    #171513;     /* negro ligeramente más cálido */
+  --bg-warm:      #f9f7f4;
+  --bg-dark:      #0f0e0e;
+  --bg-dark-2:    #171513;
   --bg-card:      #ffffff;
   --bg-card-dark: rgba(255,255,255,0.05);
 
-  /* ── Dorado — extraído del logo ─────────────── */
+  /* ── Dorado ─────────────────────────────────── */
   --gold:         #c9a84c;
   --gold-light:   #e8c96e;
   --gold-dark:    #9a7834;
-  --gold-pale:    #f7f1e3;     /* dorado muy suave para fondos */
+  --gold-pale:    #f7f1e3;
 
   /* ── Textos ─────────────────────────────────── */
   --text:         #3d3935;
@@ -61,11 +63,12 @@
   --sp-2xl: 120px;
 
   /* ── Tipografía ───────────────────────────────── */
-  --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --font: 'Outfit', system-ui, -apple-system, sans-serif;
 
   /* ── Transiciones ─────────────────────────────── */
-  --t:     all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --t:      all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --t-slow: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
   font-size: 16px;
   line-height: 1.6;
@@ -116,7 +119,7 @@ input, textarea, select { font-family: var(--font); font-size: 1rem; }
   color: var(--text-on-dark);
 }
 
-/* ── Badge ─────────────────────────────────────── */
+/* ── Badge / Eyebrow ─────────────────────────────── */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -137,13 +140,6 @@ input, textarea, select { font-family: var(--font); font-size: 1rem; }
   border-color: rgba(201,168,76,0.25);
   color: var(--gold-light);
 }
-.badge__dot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--gold);
-}
 
 /* ── Botones ─────────────────────────────────────  */
 .btn {
@@ -160,6 +156,8 @@ input, textarea, select { font-family: var(--font); font-size: 1rem; }
   white-space: nowrap;
   font-family: var(--font);
 }
+.btn:active { transform: translateY(1px) scale(0.99); }
+
 .btn-gold {
   background: var(--gradient-gold);
   color: #0f0e0e;
@@ -238,6 +236,31 @@ input, textarea, select { font-family: var(--font); font-size: 1rem; }
   color: var(--text-on-dark-muted);
 }
 
+/* ── Reveal animation ────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.55s var(--ease-out),
+    transform 0.55s var(--ease-out);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+.reveal--d1 { transition-delay: 0.1s; }
+.reveal--d2 { transition-delay: 0.2s; }
+.reveal--d3 { transition-delay: 0.3s; }
+.reveal--d4 { transition-delay: 0.4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal--d1, .reveal--d2, .reveal--d3, .reveal--d4 {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* ── Scrollbar ───────────────────────────────────── */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--bg-warm); }
@@ -252,10 +275,6 @@ input, textarea, select { font-family: var(--font); font-size: 1rem; }
 @keyframes shimmer {
   0% { background-position: -200% center; }
   100% { background-position: 200% center; }
-}
-@keyframes pulse {
-  0%,100% { opacity:0.6; transform:scale(1); }
-  50% { opacity:1; transform:scale(1.15); }
 }
 
 /* ── Responsive ──────────────────────────────────── */

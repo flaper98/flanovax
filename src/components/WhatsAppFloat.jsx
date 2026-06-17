@@ -1,6 +1,6 @@
 import './WhatsAppFloat.css'
 
-const WA_URL = 'https://wa.me/51921590084?text=Hola%2C%20me%20interesa%20el%20diagn%C3%B3stico%20gratuito%20de%20FLANOVAX'
+const WA_URL = 'https://wa.me/51977913748?text=Hola%2C%20me%20interesa%20el%20diagn%C3%B3stico%20gratuito%20de%20FLANOVAX'
 
 export default function WhatsAppFloat() {
   return (

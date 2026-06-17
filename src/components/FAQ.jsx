@@ -32,9 +32,9 @@ function Item({ q, a, i }) {
   const [open, setOpen] = useState(i === 0)
   return (
     <div className={`faq-item ${open ? 'faq-item--open' : ''}`}>
-      <button className="faq-item__q" onClick={() => setOpen(p => !p)}>
+      <button className="faq-item__q" onClick={() => setOpen(p => !p)} aria-expanded={open}>
         <span>{q}</span>
-        <span className="faq-item__ico">
+        <span className="faq-item__ico" aria-hidden="true">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
@@ -53,12 +53,12 @@ export default function FAQ() {
   return (
     <section className="faq section section--alt" id="faq">
       <div className="container">
-        <div className="section-header">
-          <div className="badge">FAQ</div>
-          <h2>Preguntas frecuentes</h2>
-          <p>Respuestas directas a las dudas más habituales antes de solicitar el diagnóstico.</p>
+        <div className="section-header reveal">
+          <div className="badge">Preguntas frecuentes</div>
+          <h2>Respuestas directas antes de empezar</h2>
+          <p>Las dudas más habituales antes de solicitar el diagnóstico gratuito.</p>
         </div>
-        <div className="faq__list">
+        <div className="faq__list reveal">
           {FAQS.map((item, i) => <Item key={i} {...item} i={i} />)}
         </div>
       </div>

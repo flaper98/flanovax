@@ -1,5 +1,15 @@
 .metrics { padding: var(--sp-xl) 0; }
 
+.metrics__eyeline {
+  text-align: center;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-on-dark-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 36px;
+}
+
 .metrics__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -12,10 +22,9 @@
 
 .metric {
   text-align: center;
-  padding: 40px 24px;
+  padding: 44px 24px;
   background: rgba(255,255,255,0.03);
-  transition: var(--t);
-  animation: fadeUp 0.5s ease both;
+  transition: background 0.25s ease;
   position: relative;
 }
 .metric:hover { background: rgba(255,255,255,0.06); }
@@ -26,7 +35,7 @@
   height: 1px;
   background: var(--gradient-gold);
   opacity: 0;
-  transition: var(--t);
+  transition: opacity 0.3s ease;
 }
 .metric:hover::after { opacity: 0.5; }
 
@@ -35,7 +44,7 @@
   align-items: baseline;
   justify-content: center;
   gap: 2px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .metric__num,
@@ -47,13 +56,14 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 800;
-  animation: shimmer 4s linear infinite;
+  animation: shimmer 5s linear infinite;
 }
-.metric__num { font-size: 3rem; line-height: 1; }
-.metric__prefix, .metric__suffix { font-size: 1.6rem; }
+.metric__num    { font-size: 3.2rem; line-height: 1; letter-spacing: -0.02em; }
+.metric__prefix,
+.metric__suffix { font-size: 1.7rem; }
 
 .metric__label {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   font-weight: 600;
   color: var(--text-on-dark);
   margin-bottom: 6px;
@@ -65,8 +75,11 @@
   line-height: 1.5;
 }
 
-@media (max-width: 900px) { .metrics__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 900px) {
+  .metrics__grid { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 480px) {
   .metrics__grid { grid-template-columns: 1fr; }
-  .metric__num { font-size: 2.4rem; }
+  .metric { padding: 36px 20px; }
+  .metric__num { font-size: 2.6rem; }
 }

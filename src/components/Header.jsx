@@ -31,7 +31,7 @@ export default function Header() {
           <img src={logo} alt="FLANOVAX" className="hdr__logo-img" />
         </a>
 
-        <nav className="hdr__nav">
+        <nav className="hdr__nav" aria-label="Navegación principal">
           {NAV.map(n => (
             <a key={n.href} href={n.href} className="hdr__link" onClick={e => goto(e, n.href)}>
               {n.label}
@@ -40,27 +40,28 @@ export default function Header() {
         </nav>
 
         <a href="#formulario" className="btn btn-gold btn-sm hdr__cta" onClick={e => goto(e,'#formulario')}>
-          Solicitar diagnóstico
+          Diagnóstico gratis
         </a>
 
         <button
           className={`hdr__burger ${open ? 'hdr__burger--open' : ''}`}
           onClick={() => setOpen(p => !p)}
-          aria-label="Menú"
+          aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={open}
         >
           <span /><span /><span />
         </button>
       </div>
 
       {open && (
-        <div className="hdr__mobile">
+        <div className="hdr__mobile" role="navigation" aria-label="Menú móvil">
           {NAV.map(n => (
             <a key={n.href} href={n.href} className="hdr__mobile-link" onClick={e => goto(e, n.href)}>
               {n.label}
             </a>
           ))}
           <a href="#formulario" className="btn btn-gold" style={{justifyContent:'center'}} onClick={e => goto(e,'#formulario')}>
-            Solicitar diagnóstico gratuito
+            Solicitar diagnóstico gratis
           </a>
         </div>
       )}

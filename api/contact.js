@@ -73,7 +73,7 @@ export default async function handler(req, res) {
           </div>
 
           <div style="background:#f9f7f4;padding:16px 32px;text-align:center;font-size:12px;color:#999;">
-            FLANOVAX · contacto@flanovax.com · +51 921 590 084
+            FLANOVAX · contacto@flanovax.com · +51 977 913 748
           </div>
         </div>
       `,

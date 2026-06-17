@@ -83,7 +83,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" v
     font-size="19"
     fill="#c9a84c"
     opacity="0.42"
-  >contacto@flanovax.com  ·  +51 921 590 084</text>
+  >contacto@flanovax.com  ·  +51 977 913 748</text>
 
   <!-- Línea dorada inferior -->
   <rect x="0" y="627" width="1200" height="3" fill="url(#gd)"/>

@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Analytics } from '@vercel/analytics/react'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -13,6 +14,20 @@ import WhatsAppFloat from './components/WhatsAppFloat'
 import Footer from './components/Footer'
 
 export default function App() {
+  useEffect(() => {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible')
+          obs.unobserve(e.target)
+        }
+      })
+    }, { threshold: 0.08 })
+
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el))
+    return () => obs.disconnect()
+  }, [])
+
   return (
     <>
       <Header />

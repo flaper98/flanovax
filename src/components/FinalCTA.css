@@ -4,29 +4,21 @@
   overflow: hidden;
 }
 
-.fcta__gold-line {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--gradient-gold);
-}
-
-.fcta__blob {
+.fcta__glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
+  filter: blur(90px);
   pointer-events: none;
-  opacity: 0.3;
 }
-.fcta__blob--1 {
+.fcta__glow--1 {
   width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(201,168,76,0.15), transparent);
-  top: -150px; left: -100px;
+  background: radial-gradient(circle, rgba(201,168,76,0.12), transparent 70%);
+  top: -160px; left: -120px;
 }
-.fcta__blob--2 {
-  width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(201,168,76,0.1), transparent);
-  bottom: -100px; right: -80px;
+.fcta__glow--2 {
+  width: 360px; height: 360px;
+  background: radial-gradient(circle, rgba(201,168,76,0.08), transparent 70%);
+  bottom: -80px; right: -80px;
 }
 
 .fcta__inner {

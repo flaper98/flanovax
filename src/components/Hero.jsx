@@ -6,185 +6,41 @@ const goto = (e, target) => {
   document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' })
 }
 
-function WebMockup() {
-  return (
-    <div className="mockup">
-      {/* Browser chrome */}
-      <div className="mockup__chrome">
-        <div className="mockup__dots">
-          <span className="mockup__dot mockup__dot--r" />
-          <span className="mockup__dot mockup__dot--y" />
-          <span className="mockup__dot mockup__dot--g" />
-        </div>
-        <div className="mockup__url">flanovax.com/tu-landing</div>
-        <div className="mockup__reload">
-          <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
-            <path d="M10 6A4 4 0 116 2" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
-            <path d="M6 0v3l2-1.5L6 0z" fill="currentColor"/>
-          </svg>
-        </div>
-      </div>
-
-      {/* Mini site */}
-      <div className="mockup__screen">
-        {/* Nav */}
-        <div className="mockup__nav">
-          <div className="mockup__nav-logo" />
-          <div className="mockup__nav-links">
-            <span /><span /><span />
-          </div>
-          <div className="mockup__nav-btn" />
-        </div>
-
-        {/* Hero area */}
-        <div className="mockup__hero">
-          <div className="mockup__hero-left">
-            <div className="mockup__badge-line" />
-            <div className="mockup__h1" />
-            <div className="mockup__h1 mockup__h1--short" />
-            <div className="mockup__sub" />
-            <div className="mockup__sub mockup__sub--short" />
-            <div className="mockup__btns">
-              <div className="mockup__btn-cta" />
-              <div className="mockup__btn-sec" />
-            </div>
-          </div>
-          <div className="mockup__hero-right">
-            <div className="mockup__form-card">
-              <div className="mockup__form-title" />
-              <div className="mockup__input" /><div className="mockup__input" />
-              <div className="mockup__input" />
-              <div className="mockup__submit" />
-            </div>
-          </div>
-        </div>
-
-        {/* Cards */}
-        <div className="mockup__cards">
-          {['📈', '⚡', '🎯'].map((icon, i) => (
-            <div key={i} className="mockup__card">
-              <span className="mockup__card-icon">{icon}</span>
-              <div className="mockup__card-lines">
-                <div className="mockup__card-line" />
-                <div className="mockup__card-line mockup__card-line--short" />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Floating stat badges */}
-      <div className="mockup__stat mockup__stat--1">
-        <span className="mockup__stat-icon">📊</span>
-        <div>
-          <div className="mockup__stat-num">+85%</div>
-          <div className="mockup__stat-label">más leads</div>
-        </div>
-      </div>
-      <div className="mockup__stat mockup__stat--2">
-        <span className="mockup__stat-icon">🚀</span>
-        <div>
-          <div className="mockup__stat-num">7-14d</div>
-          <div className="mockup__stat-label">entrega</div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 export default function Hero() {
   return (
     <section className="hero" id="inicio">
-      <div className="hero__bg-blob hero__bg-blob--1" />
-      <div className="hero__bg-blob hero__bg-blob--2" />
+      <div className="hero__glow hero__glow--1" aria-hidden="true" />
+      <div className="hero__glow hero__glow--2" aria-hidden="true" />
 
       <div className="container hero__inner">
-        {/* Content col */}
-        <div className="hero__content">
-          <div className="badge hero__urgency-badge">
-            <span className="badge__dot" style={{animation:'pulse 2s ease-in-out infinite'}} />
-            Solo 5 diagnósticos por semana — plazas limitadas
-          </div>
-
+        {/* Columna de contenido */}
+        <div className="hero__content reveal">
           <h1 className="hero__title">
-            Tu web está perdiendo <span className="hero__title-gold">leads</span> cada día — la transformamos en 14 días
+            Tu web pierde{' '}
+            <span className="hero__title-gold">leads</span>{' '}
+            cada día. La transformamos en 14 días.
           </h1>
 
           <p className="hero__sub">
-            En FLANOVAX diseñamos tu presencia digital con un único objetivo: convertir cada visita en una solicitud real de un cliente potencial.
+            Diseñamos landing pages y webs con un objetivo: que cada visita se convierta en un contacto real.
           </p>
 
           <div className="hero__actions">
             <a href="#formulario" className="btn btn-gold btn-lg" onClick={e => goto(e,'#formulario')}>
-              Quiero mi diagnóstico gratuito
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+              Solicitar diagnóstico gratis
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
             </a>
             <a href="#como-funciona" className="btn btn-outline btn-lg" onClick={e => goto(e,'#como-funciona')}>
-              ¿Cómo funciona?
+              Ver cómo funciona
             </a>
           </div>
-
-          <div className="hero__trust">
-            <div className="hero__trust-avatars">
-              {['L','C','M','A'].map((l,i) => (
-                <span key={i} className="hero__trust-av">{l}</span>
-              ))}
-            </div>
-            <div className="hero__trust-text">
-              <strong>+150 negocios</strong> ya tienen su web con FLANOVAX
-            </div>
-          </div>
-
-          <div className="hero__badges">
-            {['100% responsive','Entrega en 7-14 días','Diseño orientado a conversión'].map(b => (
-              <span key={b} className="hero__badge-item">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#9a7834" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                {b}
-              </span>
-            ))}
-          </div>
         </div>
 
-        {/* Mockup col */}
-        <div className="hero__visual">
-          <WebMockup />
-        </div>
-      </div>
-
-      {/* Below fold: form */}
-      <div className="hero__form-section" id="formulario">
-        <div className="container">
-          <div className="hero__form-inner">
-            <div className="hero__form-copy">
-              <h2 className="hero__form-title">Descubre qué está frenando tus leads — gratis</h2>
-              <p className="hero__form-desc">
-                Analizamos tu negocio y tu presencia digital actual, y te decimos exactamente qué está impidiendo que los visitantes se conviertan en clientes. Sin tecnicismos, sin rodeos.
-              </p>
-              <ul className="hero__form-checks">
-                {[
-                  'Análisis de tu situación actual',
-                  'Propuesta clara y sin tecnicismos',
-                  'Respuesta en menos de 24h',
-                  'Sin compromiso de contratación',
-                ].map(i => (
-                  <li key={i}>
-                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                      <circle cx="9" cy="9" r="9" fill="var(--gold-pale)"/>
-                      <path d="M5 9l3 3 5-6" stroke="var(--gold-dark)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    {i}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="hero__form-widget">
-              <LeadForm />
-            </div>
-          </div>
+        {/* Columna del formulario */}
+        <div className="hero__form-col reveal reveal--d2" id="formulario">
+          <LeadForm />
         </div>
       </div>
     </section>
