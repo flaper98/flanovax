@@ -1,32 +1,11 @@
 import { useState } from 'react'
 import './LeadForm.css'
 
-const BUSINESS_TYPES = [
-  'Pequeña o mediana empresa',
-  'Emprendedor / Freelance',
-  'Agencia o consultora',
-  'Consultor o coach',
-  'Infoproductor',
-  'Marca personal',
-  'Tienda o e-commerce',
-  'Otro',
-]
-
-const SERVICES = [
-  'Landing page de conversión',
-  'Página web completa',
-  'Rediseño de web actual',
-  'Formularios de captación',
-  'Optimización para conversión',
-  'Presencia digital desde cero',
-  'No lo sé aún, quiero orientación',
-]
-
 export default function LeadForm({ dark = false }) {
-  const [form, setForm]         = useState({ name:'', email:'', phone:'', business:'', service:'', message:'' })
+  const [form, setForm]           = useState({ name: '', email: '', phone: '' })
   const [submitted, setSubmitted] = useState(false)
-  const [loading, setLoading]   = useState(false)
-  const [error, setError]       = useState(false)
+  const [loading, setLoading]     = useState(false)
+  const [error, setError]         = useState(false)
 
   const change = e => setForm(p => ({ ...p, [e.target.name]: e.target.value }))
 
@@ -78,46 +57,23 @@ export default function LeadForm({ dark = false }) {
     <div className={`lf ${dark ? 'lf--dark' : ''}`}>
       <div className="lf__header">
         <h3 className="lf__title">Solicita tu diagnóstico gratuito</h3>
-        <p className="lf__sub">Cuéntanos tu negocio y te decimos qué web necesitas para captar más clientes.</p>
+        <p className="lf__sub">Solo necesito 3 datos para analizar tu negocio y decirte exactamente qué está frenando tus leads.</p>
       </div>
 
       <form className="lf__body" onSubmit={submit}>
-        <div className="lf__row">
-          <div className="lf__field">
-            <label htmlFor="lf-name">Nombre completo <span className="lf__req">*</span></label>
-            <input id="lf-name" name="name" type="text" placeholder="Tu nombre" value={form.name} onChange={change} required autoComplete="name"/>
-          </div>
-          <div className="lf__field">
-            <label htmlFor="lf-email">Email <span className="lf__req">*</span></label>
-            <input id="lf-email" name="email" type="email" placeholder="tu@email.com" value={form.email} onChange={change} required autoComplete="email"/>
-          </div>
-        </div>
-
-        <div className="lf__row">
-          <div className="lf__field">
-            <label htmlFor="lf-phone">WhatsApp / Teléfono <span className="lf__req">*</span></label>
-            <input id="lf-phone" name="phone" type="tel" placeholder="+51 900 000 000" value={form.phone} onChange={change} required autoComplete="tel"/>
-          </div>
-          <div className="lf__field">
-            <label htmlFor="lf-business">Tipo de negocio <span className="lf__req">*</span></label>
-            <select id="lf-business" name="business" value={form.business} onChange={change} required>
-              <option value="">Selecciona...</option>
-              {BUSINESS_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
-            </select>
-          </div>
+        <div className="lf__field">
+          <label htmlFor="lf-name">Nombre completo <span className="lf__req">*</span></label>
+          <input id="lf-name" name="name" type="text" placeholder="Tu nombre" value={form.name} onChange={change} required autoComplete="name"/>
         </div>
 
         <div className="lf__field">
-          <label htmlFor="lf-service">Servicio que necesitas <span className="lf__req">*</span></label>
-          <select id="lf-service" name="service" value={form.service} onChange={change} required>
-            <option value="">¿Qué necesitas?</option>
-            {SERVICES.map(s => <option key={s} value={s}>{s}</option>)}
-          </select>
+          <label htmlFor="lf-email">Email <span className="lf__req">*</span></label>
+          <input id="lf-email" name="email" type="email" placeholder="tu@email.com" value={form.email} onChange={change} required autoComplete="email"/>
         </div>
 
         <div className="lf__field">
-          <label htmlFor="lf-message">¿Cuéntanos más sobre tu negocio? <span className="lf__req">*</span></label>
-          <textarea id="lf-message" name="message" rows={3} placeholder="Ej: Tengo un negocio de consultoría, quiero una web para captar clientes y recibir solicitudes..." value={form.message} onChange={change} required/>
+          <label htmlFor="lf-phone">WhatsApp / Teléfono <span className="lf__req">*</span></label>
+          <input id="lf-phone" name="phone" type="tel" placeholder="+51 900 000 000" value={form.phone} onChange={change} required autoComplete="tel"/>
         </div>
 
         {error && (
@@ -131,13 +87,21 @@ export default function LeadForm({ dark = false }) {
           {loading ? (
             <><span className="lf__spinner"/>Enviando...</>
           ) : (
-            <>Solicitar diagnóstico gratuito
+            <>Quiero saber qué falla en mi web
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </>
           )}
         </button>
+
+        <div className="lf__urgency">
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.4"/>
+            <path d="M8 4v4l2.5 2.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+          </svg>
+          Solo 5 diagnósticos por semana · Respuesta en menos de 24 h
+        </div>
 
         <p className="lf__privacy">
           <svg width="12" height="12" viewBox="0 0 16 16" fill="none">

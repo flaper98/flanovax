@@ -50,6 +50,28 @@
 }
 .fcta__checks svg { flex-shrink: 0; }
 
+.fcta__guarantee {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.22);
+  border-radius: var(--r-md);
+  padding: 16px 18px;
+}
+.fcta__guarantee-icon { flex-shrink: 0; margin-top: 2px; }
+.fcta__guarantee-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #e8c96a;
+  margin-bottom: 4px;
+}
+.fcta__guarantee-text {
+  font-size: 0.82rem;
+  color: var(--text-on-dark-muted);
+  line-height: 1.55;
+}
+
 .fcta__contacts { border-top: 1px solid var(--border-dark); padding-top: 20px; display: flex; flex-direction: column; gap: 12px; }
 .fcta__contacts-label { font-size: 0.82rem; color: var(--text-on-dark-muted); }
 

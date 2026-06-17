@@ -29,6 +29,19 @@ export default function FinalCTA() {
             ))}
           </ul>
 
+          <div className="fcta__guarantee">
+            <div className="fcta__guarantee-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <path d="M14 2L4 6v8c0 6.627 4.477 12.535 10 14 5.523-1.465 10-7.373 10-14V6L14 2z" fill="rgba(201,168,76,0.15)" stroke="#c9a84c" strokeWidth="1.6" strokeLinejoin="round"/>
+                <path d="M9 14l4 4 6-7" stroke="#c9a84c" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <p className="fcta__guarantee-title">Garantía de resultados</p>
+              <p className="fcta__guarantee-text">Si en 30 días tu web no recibe leads, la revisamos y ajustamos sin coste adicional. Sin letra pequeña.</p>
+            </div>
+          </div>
+
           <div className="fcta__contacts">
             <p className="fcta__contacts-label">¿Prefieres contactar directamente?</p>
             <div className="fcta__contacts-links">

@@ -6,8 +6,10 @@ import Problems from './components/Problems'
 import HowItWorks from './components/HowItWorks'
 import Services from './components/Services'
 import Benefits from './components/Benefits'
+import Testimonials from './components/Testimonials'
 import FAQ from './components/FAQ'
 import FinalCTA from './components/FinalCTA'
+import WhatsAppFloat from './components/WhatsAppFloat'
 import Footer from './components/Footer'
 
 export default function App() {
@@ -21,10 +23,12 @@ export default function App() {
         <HowItWorks />
         <Services />
         <Benefits />
+        <Testimonials />
         <FAQ />
         <FinalCTA />
       </main>
       <Footer />
+      <WhatsAppFloat />
       <Analytics />
     </>
   )

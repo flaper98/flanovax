@@ -139,6 +139,26 @@
 .lf--dark .lf__error { background: rgba(192,57,43,0.15); border-color: rgba(192,57,43,0.3); color: #ff8a80; }
 .lf--dark .lf__error a { color: #ff8a80; }
 
+.lf__urgency {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--gold-dark);
+  text-align: center;
+  background: var(--gold-pale);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--r-sm);
+  padding: 8px 14px;
+}
+.lf--dark .lf__urgency {
+  background: rgba(201,168,76,0.12);
+  border-color: rgba(201,168,76,0.25);
+  color: #e8c96a;
+}
+
 .lf__privacy {
   display: flex;
   align-items: center;

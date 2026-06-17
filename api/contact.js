@@ -9,9 +9,11 @@ export default async function handler(req, res) {
 
   const { name, email, phone, business, service, message } = req.body ?? {}
 
-  if (!name || !email || !phone || !message) {
+  if (!name || !email || !phone) {
     return res.status(400).json({ error: 'Faltan campos requeridos' })
   }
+
+  const displayMessage = message || 'Diagnóstico solicitado desde el formulario web'
 
   try {
     const { data, error: resendError } = await resend.emails.send({
@@ -54,7 +56,7 @@ export default async function handler(req, res) {
               </tr>
               <tr>
                 <td style="padding:14px 0 0;color:#666;font-size:13px;vertical-align:top;">Mensaje</td>
-                <td style="padding:14px 0 0;font-size:14px;line-height:1.6;">${message.replace(/\n/g, '<br>')}</td>
+                <td style="padding:14px 0 0;font-size:14px;line-height:1.6;">${displayMessage.replace(/\n/g, '<br>')}</td>
               </tr>
             </table>
 

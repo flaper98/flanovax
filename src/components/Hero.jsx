@@ -101,28 +101,28 @@ export default function Hero() {
       <div className="container hero__inner">
         {/* Content col */}
         <div className="hero__content">
-          <div className="badge">
+          <div className="badge hero__urgency-badge">
             <span className="badge__dot" style={{animation:'pulse 2s ease-in-out infinite'}} />
-            Diagnóstico gratuito disponible
+            Solo 5 diagnósticos por semana — plazas limitadas
           </div>
 
           <h1 className="hero__title">
-            Creamos <span className="hero__title-gold">landing pages</span> y páginas web que convierten visitantes en clientes
+            Tu web está perdiendo <span className="hero__title-gold">leads</span> cada día — la transformamos en 14 días
           </h1>
 
           <p className="hero__sub">
-            En FLANOVAX diseñamos tu presencia digital con un objetivo claro: que cada visitante tenga una razón poderosa para contactarte.
+            En FLANOVAX diseñamos tu presencia digital con un único objetivo: convertir cada visita en una solicitud real de un cliente potencial.
           </p>
 
           <div className="hero__actions">
             <a href="#formulario" className="btn btn-gold btn-lg" onClick={e => goto(e,'#formulario')}>
-              Solicitar diagnóstico gratuito
+              Quiero mi diagnóstico gratuito
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </a>
-            <a href="#servicios" className="btn btn-outline btn-lg" onClick={e => goto(e,'#servicios')}>
-              Ver servicios
+            <a href="#como-funciona" className="btn btn-outline btn-lg" onClick={e => goto(e,'#como-funciona')}>
+              ¿Cómo funciona?
             </a>
           </div>
 
@@ -160,9 +160,9 @@ export default function Hero() {
         <div className="container">
           <div className="hero__form-inner">
             <div className="hero__form-copy">
-              <h2 className="hero__form-title">Solicita tu diagnóstico gratuito</h2>
+              <h2 className="hero__form-title">Descubre qué está frenando tus leads — gratis</h2>
               <p className="hero__form-desc">
-                Revisamos tu negocio, tu presencia digital actual y te decimos exactamente qué tipo de web o landing page necesitas para captar más clientes.
+                Analizamos tu negocio y tu presencia digital actual, y te decimos exactamente qué está impidiendo que los visitantes se conviertan en clientes. Sin tecnicismos, sin rodeos.
               </p>
               <ul className="hero__form-checks">
                 {[
